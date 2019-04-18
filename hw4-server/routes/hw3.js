@@ -23,8 +23,9 @@ router.get('/', function(req, res, next) {
         return false;
       if (!periods[0])
         return false;
-      const info = periods[0];
-      res.render('hw3', {title: 'Boston Weather', updateTime: updateTime, info: info});
+      let info = periods[0];
+      info.updateTime = updateTime;
+      res.json(info);
       return true;
     };
     if (!retrieve()){
